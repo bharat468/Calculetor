@@ -1,20 +1,32 @@
-let number = document.querySelectorAll(".number")
-let ac = document.querySelectorAll(".ac")
-let dec = document.querySelectorAll(".dec")
-let parsent = document.querySelectorAll(".parsent")
-let divaid = document.querySelectorAll(".divaid")
-let multiplay = document.querySelectorAll(".multiplay")
-let less = document.querySelectorAll(".less")
-let plus = document.querySelectorAll(".plus")
-let equl = document.querySelectorAll(".equl")
-let input = document.querySelector("input")
+let button = document.querySelectorAll("button")
+let opretor = document.querySelector(".opretor")
+let equl = document.querySelector(".equl")
+let input = document.querySelector("input");
+let dele = document.querySelector(".dele");
 
-let string = ""
-// let arr = Array.from(number)
-number.forEach((button) => {
-    button.addEventListener("click", () => {
-       number.value
-       console.log(number.textContent);
-       input.value.number
+
+
+let string = ''
+button.forEach((number) => {
+    number.addEventListener("click", (e) => {
+        if (e.target.innerHTML == "DEL") {
+            string = string.substring(0, string.length - 1);
+            input.value = string
+
+        }
+        else if (e.target.innerHTML == "AC") {
+            string = ""
+            input.value = string
+        }
+        else if(e.target.innerHTML == "="){
+            input.value = eval(string)
+        }
+        else {
+            string += e.target.innerHTML
+            input.value = string
+        }
+        console.log(e.target.innerHTML);
     })
 })
+
+
